@@ -25,7 +25,7 @@ SECRET_KEY = 'gqy#8(bqij4^j416^uyg9%8*zp%r#u=9+(unsauv31rvmg%oa3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['aws3.philgookang.com', 'pisa.snu.ac.kr']
 
 
 # Application definition
