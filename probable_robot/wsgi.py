@@ -1,5 +1,5 @@
 """
-WSGI config for BasileusInterface project.
+WSGI config for probable_robot project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BasileusInterface.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'probable_robot.settings')
 
 application = get_wsgi_application()
