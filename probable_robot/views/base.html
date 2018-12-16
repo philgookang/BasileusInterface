@@ -21,9 +21,82 @@
         <title>{% block title %}My amazing site{% endblock %}</title>
 
         <!-- CSS -->
-
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="/public/css/reset.css" type="text/css"/>
+		<link rel="stylesheet" href="/public/css/admin_d.css" type="text/css"/>
+		<style>html, body {font-family: 'Roboto',sans-serif;}</style>
 	</head>
     <body>
-        {% block content %} {% endblock %}
+		<div class="head">
+			<div class="container">
+				<div class="row">
+					<div class="logo" style="font-size: 22px; font-weight: 900;">
+						Probable Robot
+					</div>
+					<!--/.logo-->
+				</div>
+				<!--/.row-->
+
+				<div class="navigation">
+					<ul>
+						<li><a href="/patient/" style="padding-top: 0px;">Brand</a></li>
+					</ul>
+				</div>
+
+				<div class="quick-menu">
+					<a href="#" class="menu-item-timeout" onclick="return false;">19:53</a>
+					<a href="#" onclick="return false;">안녕하세요, 강필구님.</a>
+					<a href="/setting/">설정</a>
+					<a href="/logout/">로그아웃</a>
+				</div>
+				<!--/.quick-menu-->
+			</div>
+			<!--/.container-->
+		</div>
+
+		<div class="body">
+			<div class="container">
+				<div class="blog-wrap">
+				    <div class="sidebar">
+				        <div class="panel">
+				            <div class="panel-tab">
+								<div class="tab-item text-bold text-center tab-item-active" style="display:block;">
+				                    Navigation
+								</div>
+								<!--/.tab-item-->
+				            </div>
+				            <!--/.panel-tab-->
+
+				            <a href="#">
+				                <div class="panel-block" style="border-bottom: 1px solid #f9f9f9;">
+                    				Title
+				    			</div>
+				                <!--/.panel-block-->
+				            </a>
+				        </div>
+				        <!--/.panel-->
+				    </div>
+				    <!--/.sidebar-->
+
+				    <div class="blogcontent">
+				        <div class="panel">
+							<div class="panel-header">
+								<h1>Brand List</h1>
+							</div>
+							<!--/.panel-header-->
+
+					        <div class="panel-body padTopNone">
+								{% block content %} {% endblock %}
+							</div>
+						</div>
+						<!--/.panel-->
+					</div>
+					<!--/.blogcontent-->
+				</div>
+				<!--/.blog-wrap-->
+            </div>
+            <!--/.container-->
+        </div>
+		<!--/.body-->
     </body>
 </html>

@@ -3,5 +3,24 @@
 {% block title %}My amazing blog{% endblock %}
 
 {% block content %}
-dfs adfas dfsa df asdf asdfasdf 
+
+    <table class="table table-bordered table-striped">
+    	<thead>
+    		<tr>
+    			<th style="width: 60px;">#</th>
+    			<th>Name</th>
+    			<th style="width: 120px;">Count</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+            {% for brand in brand_list %}
+        		<tr>
+        			<td class="text-center">{{ brand.idx }}</td>
+        			<td>{{ brand.name }}</td>
+        			<td class="text-center">3</td>
+        		</tr>
+            {% endfor %}
+    	</tbody>
+    </table>
+
 {% endblock %}

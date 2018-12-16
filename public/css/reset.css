@@ -1,0 +1,35 @@
+.panel-options input.btn { height: 24px; margin-right: 15px; }
+.blog-wrap {
+    display: table;
+    width: 100%;
+}
+.blog-wrap .sidebar {
+    display: table-cell;
+    width: 290px;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+.blog-wrap .sidebar .cheat {
+    padding: 15px 20px !important;
+}
+.blog-wrap .blogcontent {
+    display: table-cell;
+    width: 910px;
+}
+
+.dark {
+    background-color: #f9f9f9;
+    font-weight: 900;
+    text-align: center;
+    width: 140px;
+}
+
+
+.alert_auto_red {
+    background-color: rgb(255, 236, 236);
+}
+
+
+.lab {
+    cursor: pointer;display:block;width:100%;text-align:center;padding:10px 0px;
+}

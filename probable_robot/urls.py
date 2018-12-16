@@ -19,6 +19,6 @@ from django.urls import include,path
 from probable_robot.controllers import brands
 
 urlpatterns = [
-    path('', include('visual.urls')),
+    path('', brands.index, name='index'),
     path('brands', brands.index, name='index')
 ]
