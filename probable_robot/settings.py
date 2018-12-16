@@ -54,7 +54,7 @@ ROOT_URLCONF = 'probable_robot.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['probable_robot/views/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
