@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="panel">
+        <div class="panel-header">
+            <h1>Products</h1>
+        </div>
+        <!--/.panel-header-->
+
+        <div class="panel-body padTopNone">
+            <table class="table table-bordered table-striped">
+            	<thead>
+            		<tr>
+            			<th style="width: 60px;">#</th>
+            			<th>Name</th>
+            			<th style="width: 120px;">Count</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+                    {% for product in product_list %}
+                		<tr>
+                			<td class="text-center">{{ product.idx }}</td>
+                			<td>{{ product.name }}</td>
+                			<td class="text-center">0</td>
+                		</tr>
+                    {% endfor %}
+            	</tbody>
+            </table>
+        </div>
+        <!--/.panel-body-->
+
+        {% if pagination.has_other_pages %}
+            <div class="panel-block text-center">
+    			<ul class="pagination">
+                    {% if users.has_previous %}
+                        <li>
+                            <a href="?page={{ users.previous_page_number }}">
+        			            <div class="fa fa-angle-right"></div>
+        			        </a>
+        			    </li>
+                    {% endif %}
+
+                    {% for i in users.paginator.page_range %}
+                        {% if users.number == i %}
+                            <li class="active">
+                                <a href="#">
+                                    {{ i }}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="active">
+                                <a href="/products/?page={{ i }}">
+                                    {{ i }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if users.has_next %}
+                        <li>
+        			        <a href="/products/?page={{ users.next_page_number }}">
+        			            <div class="fa fa-angle-double-right"></div>
+        			        </a>
+        			    </li>
+                    {% endif %}
+    			</ul>
+    		</div>
+        {% endif %}
+    </div>
+    <!--/.panel-->
+
+{% endblock %}

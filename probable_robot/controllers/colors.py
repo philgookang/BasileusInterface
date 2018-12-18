@@ -9,7 +9,7 @@ from model import *
 
 def index(request):
     data = {
-        'brand_list': ProductBrandsM().getList()
+        'color_list': ProductColorsM().getList()
     }
-    template = loader.get_template('brands/brand_list.html')
+    template = loader.get_template('colors/color_list.html')
     return HttpResponse(template.render(data, request))

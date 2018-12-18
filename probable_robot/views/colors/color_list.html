@@ -4,7 +4,7 @@
 
     <div class="panel">
         <div class="panel-header">
-            <h1>Brands</h1>
+            <h1>Colors</h1>
         </div>
         <!--/.panel-header-->
 
@@ -18,10 +18,10 @@
             		</tr>
             	</thead>
             	<tbody>
-                    {% for brand in brand_list %}
+                    {% for color in color_list %}
                         <tr>
-                            <td class="text-center">{{ brand.idx }}</td>
-                            <td>{{ brand.name }}</td>
+                            <td class="text-center">{{ color.idx }}</td>
+                            <td>{{ color.name }}</td>
                             <td class="text-center">0</td>
                         </tr>
                     {% endfor %}
