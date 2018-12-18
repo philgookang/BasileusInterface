@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import include,path
 
 from probable_robot.controllers import brands
+from probable_robot.controllers import colors
+from probable_robot.controllers import products
 
 urlpatterns = [
     path('', brands.index, name='index'),
-    path('brands', brands.index, name='index')
+    path('brands', brands.index, name='index'),
+    path('colors', colors.index, name='index'),
+    path('products', products.index, name='index'),
 ]
