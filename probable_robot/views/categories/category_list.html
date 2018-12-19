@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load humanize %}
+    <div class="panel">
+        <div class="panel-tab">
+			<a href="/categories?level=0" class="tab-item {% if level == '0' %} tab-item-active {% endif %}">
+				Top Category
+			</a>
+			<!--/.tab-item-->
+
+			<a href="/categories?level=1" class="tab-item {% if level == '1' %} tab-item-active {% endif %}">
+				Middle Category
+			</a>
+			<!--/.tab-item-->
+		</div>
+        <!--/.panel-tab-->
+
+        <div class="panel-body">
+            <table class="table table-bordered table-striped">
+            	<thead>
+            		<tr>
+            			<th style="width: 60px;">#</th>
+            			<th>Name</th>
+            			<th style="width: 90px;">Count</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+                    {% for category in category_list %}
+                        <tr>
+                            <td class="text-center" data-idx="{{ category.idx }}">{{ forloop.counter }}</td>
+                            <td>{{ category.name }}</td>
+                            <td class="text-center">{{ category.product_counter|intcomma }}</td>
+                        </tr>
+                    {% endfor %}
+            	</tbody>
+            </table>
+        </div>
+        <!--/.panel-body-->
+
+        <div class="panel-block">
+            Recommendation: top, bottom, outer, dress, shoes, bag, accessory
+        </div>
+        <!--/.panel-block-->
+    </div>
+    <!--/.panel-->
+
+{% endblock %}

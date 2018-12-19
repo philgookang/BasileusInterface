@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    {% load humanize %}
     <div class="panel">
         <div class="panel-header">
             <h1>Brands</h1>
+
+            <div class="pull-right">
+                Total: {{ total_count|intcomma }}
+            </div>
+            <!--/.pull-right-->
         </div>
         <!--/.panel-header-->
 
@@ -29,6 +34,26 @@
             </table>
         </div>
         <!--/.panel-body-->
+
+        <div class="panel-block text-center">
+            <ul class="pagination">
+                {% for p in pagination %}
+                    {% if current_page == p %}
+                        <li class="active">
+                            <a href="/brands?page={{ p }}">
+                                {{ p }}
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/brands?page={{ p }}">
+                                {{ p }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
     </div>
     <!--/.panel-->
 
