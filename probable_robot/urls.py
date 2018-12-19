@@ -22,7 +22,7 @@ from probable_robot.controllers import products
 from probable_robot.controllers import categories
 
 urlpatterns = [
-    path('', brands.index, name='index'),
+    path('', products.index, name='index'),
     path('brands', brands.index, name='index'),
     path('colors', colors.index, name='index'),
     path('products', products.index, name='index'),
