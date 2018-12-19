@@ -34,6 +34,7 @@
                         <th style="width: 140px;">Category</th>
                         <th style="width: 140px;">Brand</th>
             			<th style="width: 110px;">Price</th>
+                        <th style="width: 110px;">Code</th>
             			<th style="width: 80px;">Exclude</th>
             		</tr>
             	</thead>
@@ -42,7 +43,9 @@
                 		<tr>
                 			<td class="text-center">{{ product.idx|intcomma }}</td>
                             <td class="img-sm" style="height: 70px;">
-                                <img src="/public/images/{{ product.image.filename }}">
+                                <a href="/public/images/{{ product.image.filename }}" target="_blank">
+                                    <img src="/public/images/{{ product.image.filename }}">
+                                </a>
                             </td>
                 			<td>
                                 <b>{{ product.name }}</b>
@@ -56,10 +59,13 @@
                                 {{ product.category_1.name }}
                             </td>
                             <td class="text-center">
-                                {{ product.brand.name }}
+                                {{ product.brand.name_ko }}
                             </td>
                             <td class="text-center">
                                 {{ product.price|intcomma }} 원
+                            </td>
+                            <td class="text-center">
+                                {{ product.product_id }}
                             </td>
                 			<td class="text-center">
                                 {% if product.ml_exclude_price == 1 %}
@@ -106,4 +112,5 @@
     </div>
     <!--/.panel-->
 
+    <style> .container { width: 1400px; } </style>
 {% endblock %}
