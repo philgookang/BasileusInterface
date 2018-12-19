@@ -18,7 +18,9 @@
             	<thead>
             		<tr>
             			<th style="width: 60px;">#</th>
-            			<th>Name</th>
+            			<th>Eng Name</th>
+                        <th>Kor Name</th>
+                        <th>Orginal Name</th>
             			<th style="width: 120px;">Count</th>
             		</tr>
             	</thead>
@@ -27,7 +29,9 @@
                         <tr>
                             <td class="text-center">{{ brand.idx }}</td>
                             <td>{{ brand.name }}</td>
-                            <td class="text-center">0</td>
+                            <td>{{ brand.name_ko }}</td>
+                            <td>{{ brand.name_ori }}</td>
+                            <td class="text-center">{{ brand.product_counter }}</td>
                         </tr>
                     {% endfor %}
             	</tbody>
