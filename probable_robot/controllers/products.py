@@ -15,6 +15,8 @@ def index(request):
     ml_exclude_price   = request.GET.get('ml_exclude_price', None)
     ml_exclude_lang    = request.GET.get('ml_exclude_lang', None)
     hide_orgi_name     = request.GET.get('hide_orgi_name', None)
+    search_name        = request.GET.get('search_name', '')
+    search_name_ori    = request.GET.get('search_name_ori', '')
 
     def retrieveMore(product):
         pi = ProductImagesM()
@@ -39,6 +41,8 @@ def index(request):
     pm = ProductsM()
     if ml_exclude_price == '1': pm.ml_exclude_price = 0
     if ml_exclude_lang == '1':  pm.ml_exclude_lang  = 0
+    if search_name != '': pm.search_name = search_name
+    if search_name_ori != '': pm.search_name_ori = search_name_ori
     product_list = pm.getList( offset=(int(page)*int(limit)), limit=limit  )
     product_list = list(map(retrieveMore, product_list))
     total_count = pm.getTotal()
@@ -69,6 +73,8 @@ def index(request):
         'ml_exclude_price'  : ml_exclude_price,
         'ml_exclude_lang'   : ml_exclude_lang,
         'hide_orgi_name'    : hide_orgi_name,
+        'search_name'       : search_name,
+        'search_name_ori'   : search_name_ori,
         'pagination'        : pagination(total_count['cnt'], page, limit)
     }
     template = loader.get_template('products/product_list.html')

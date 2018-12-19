@@ -7,6 +7,8 @@
             <h1>Products (Total: {{ total_count|intcomma }})</h1>
 
             <form class="panel-options input-inline" method="GET" action="/products">
+                <input type="text" class="input" placeholder="Search Name" name="search_name" value="{{ search_name }}"/>
+                <input type="text" class="input" placeholder="Search Original Name" name="search_name_ori" value="{{ search_name_ori }}"/>
                 <label class="input" style="padding: 1px 6px; cursor: pointer;">
                     <input type="checkbox" value="1" style="vertical-align: middle;" name="hide_orgi_name" {% if hide_orgi_name == '1' %} checked {% endif %} />
                     Hide-Orig-Name
@@ -80,7 +82,7 @@
 
                     {% if product_list|length == 0 %}
                         <tr>
-                            <td colspan="7" class="text-center">
+                            <td colspan="8" class="text-center">
                                 Table is currently empty
                             </td>
                         </tr>
@@ -101,7 +103,8 @@
                         </li>
                     {% else %}
                         <li>
-                            <a href="/products?page={{ p }}&{% if hide_orgi_name == '1' %}hide_orgi_name=1&{% endif %}{% if ml_exclude_price == '1' %}ml_exclude_price=1&{% endif %}{% if ml_exclude_lang == '1' %}ml_exclude_lang=1&{% endif %}">
+
+                            <a href="/products?page={{ p }}&{% if search_name_ori != '' %}search_name={{search_name_ori|urlencode}}&{% endif %}{% if search_name != '' %}search_name={{search_name|urlencode}}&{% endif %}{% if hide_orgi_name == '1' %}hide_orgi_name=1&{% endif %}{% if ml_exclude_price == '1' %}ml_exclude_price=1&{% endif %}{% if ml_exclude_lang == '1' %}ml_exclude_lang=1&{% endif %}">
                                 {{ p }}
                             </a>
                         </li>
