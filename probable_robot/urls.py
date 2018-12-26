@@ -20,11 +20,14 @@ from probable_robot.controllers import brands
 from probable_robot.controllers import colors
 from probable_robot.controllers import products
 from probable_robot.controllers import categories
+from probable_robot.controllers import images
 
 urlpatterns = [
     path('', products.index, name='index'),
     path('brands', brands.index, name='index'),
     path('colors', colors.index, name='index'),
     path('products', products.index, name='index'),
+    path('products/<int:product_idx>', products.view, name='view'),
     path('categories', categories.index, name='index'),
+    path('images/tile', images.tile, name='tile'),
 ]
