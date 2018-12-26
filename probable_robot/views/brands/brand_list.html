@@ -4,12 +4,7 @@
     {% load humanize %}
     <div class="panel">
         <div class="panel-header">
-            <h1>Brands</h1>
-
-            <div class="pull-right">
-                Total: {{ total_count|intcomma }}
-            </div>
-            <!--/.pull-right-->
+            <h1>Brands(Total: {{ total_count|intcomma }})</h1>
         </div>
         <!--/.panel-header-->
 
@@ -31,7 +26,11 @@
                             <td>{{ brand.name }}</td>
                             <td>{{ brand.name_ko }}</td>
                             <td>{{ brand.name_ori }}</td>
-                            <td class="text-center">{{ brand.product_counter }}</td>
+                            <td class="text-center">
+                                <a href="/products?brand_idx={{ brand.idx }}">
+                                    {{ brand.product_counter }}
+                                </a>
+                            </td>
                         </tr>
                     {% endfor %}
             	</tbody>
