@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <style>
+        .tile {
+            height: 150px;
+            width: 150px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            background-color: #dfdfdf;
+            border: 1px solid #d9d9d9;
+        }
+        .tile img {
+            height: 150px;
+            max-width: 150px;
+        }
+    </style>
+
+    <div class="panel">
+        <div class="panel-header">
+            <h1>Image Tile</h1>
+        </div>
+        <!--/.panel-header-->
+
+        <div class="panel-body padTopNone" style="font-size: 0px;">
+            {% for image in image_list %}
+                <a href="/products/{{ image.product_idx }}">
+                    <div class="tile">
+                        <img src="/public/images/{{ image.filename }}">
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <!--/.panel-body-->
+
+        <div class="panel-block text-center">
+            <ul class="pagination">
+                {% for page in pagination.pages %}
+                    <li  {% if page.active %} class="active" {% endif %}>
+                        <a href="{{ page.url }}" >
+                            {{ page.num }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!--/.panel-block-->
+    </div>
+    <!--/.panel-->
+
+{% endblock %}
