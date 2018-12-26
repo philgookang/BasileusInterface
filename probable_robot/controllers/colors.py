@@ -9,14 +9,6 @@ from model import *
 
 def index(request):
 
-    '''
-TRUNCATE `products`;
-TRUNCATE `product_brands`;
-TRUNCATE `product_categories`;
-TRUNCATE `product_colors`;
-TRUNCATE `product_images`;
-    '''
-
     color_replacement = {
         "black"     : "블랙",
         "beige"     : "베이지",
