@@ -30,7 +30,11 @@
                         <tr>
                             <td class="text-center" data-idx="{{ category.idx }}">{{ forloop.counter }}</td>
                             <td>{{ category.name }}</td>
-                            <td class="text-center">{{ category.product_counter|intcomma }}</td>
+                            <td class="text-center">
+                                <a href="/products?level={{ level }}&category_idx={{ category.idx }}">
+                                    {{ category.product_counter|intcomma }}
+                                </a>
+                            </td>
                         </tr>
                     {% endfor %}
             	</tbody>
