@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load humanize %}
+
+    <div class="panel">
+        <div class="panel-body">
+            <div class="row">
+				<label class="text-bold">Title (Product Name)</label>
+				<div class="input">
+                    {{ product.name }}
+                </div>
+			</div>
+            <!--/.row-->
+            <br />
+            <div class="row">
+				<label class="text-bold">Sub Title (Second Name)</label>
+				<div class="input">
+                    {{ product.second_name }}
+                </div>
+			</div>
+            <!--/.row-->
+            <br />
+            <div class="row-col">
+                <div class="col-3">
+                    <label class="text-bold">Brand</label>
+    				<div class="input">
+                        {{ product.brand.name }} |
+                        {{ product.brand.name_ko }} |
+                        {{ product.brand.name_ori }}
+                    </div>
+                </div>
+                <!--/.col-3-->
+                <div class="col-3">
+                    <label class="text-bold">Price</label>
+    				<div class="input">
+                        {{ product.price|intcomma }} 원
+                    </div>
+                </div>
+                <!--/.col-3-->
+                <div class="col-3">
+                    <label class="text-bold">Price</label>
+    				<div class="input">
+                        {{ product.product_id }} 원
+                    </div>
+                </div>
+                <!--/.col-3-->
+            </div>
+            <!--/.row-col-->
+        </div>
+        <!--/.panel-body-->
+    </div>
+    <!--/.panel-->
+
+    <div class="panel">
+        <div class="panel-header">
+            <h1>Images</h1>
+        </div>
+        <!--/.panel-header-->
+
+        <div class="panel-body padTopNone">
+            <div class="row-col">
+                {% for image in product.image_list %}
+                    <div class="col-5 text-center">
+                        <a href="/public/images/{{ image.filename }}" target="_blank">
+                            <img src="/public/images/{{ image.filename }}" style="height: 120px;" />
+                        </a>
+                    </div>
+                    <!--/.col-5-->
+                {% endfor %}
+            </div>
+        </div>
+        <!--/.panel-body-->
+    </div>
+    <!--/.panel-->
+
+{% endblock %}
