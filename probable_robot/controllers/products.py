@@ -8,9 +8,11 @@ from model import *
 
 def index(request):
 
-    limit   = request.GET.get('limit', 30)
-    page    = int(request.GET.get('page', 1))
-    page    = (page - 1) if page >= 1 else 0
+    sort_by         = request.GET.get('sort_by', 'idx')
+    sort_direction  = request.GET.get('sort_direction', 'desc')
+    limit           = request.GET.get('limit', 30)
+    page            = int(request.GET.get('page', 1))
+    page            = (page - 1) if page >= 1 else 0
 
     ml_exclude_price   = request.GET.get('ml_exclude_price', None)
     ml_exclude_lang    = request.GET.get('ml_exclude_lang', None)
@@ -51,7 +53,7 @@ def index(request):
         pm.category_1_idx = category_idx
     elif level == '1' and category_idx != None:
         pm.category_2_idx = category_idx
-    product_list = pm.getList( offset=(int(page)*int(limit)), limit=limit  )
+    product_list = pm.getList( offset=(int(page)*int(limit)), limit=limit, sort_by=sort_by, sort_direction=sort_direction )
     product_list = list(map(retrieveMore, product_list))
     total_count = pm.getTotal()
 
@@ -86,6 +88,8 @@ def index(request):
         'category_idx'      : category_idx,
         'search_name'       : search_name,
         'search_name_ori'   : search_name_ori,
+        'sort_by'           : sort_by,
+        'sort_direction'    : sort_direction,
         'pagination'        : pagination(total_count['cnt'], page, limit)
     }
     template = loader.get_template('products/product_list.html')

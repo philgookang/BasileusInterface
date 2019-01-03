@@ -7,6 +7,15 @@
             <h1>Products (Total: {{ total_count|intcomma }})</h1>
 
             <form class="panel-options input-inline" method="GET" action="/products">
+                <select name="sort_by" class="input">
+                    <option value="idx" {% if sort_by == 'idx' %} selected {% endif %}>Id</option>
+                    <option value="name" {% if sort_by == 'name' %} selected {% endif %}>Name</option>
+                    <option value="name_ori" {% if sort_by == 'name_ori' %} selected {% endif %}>Name (Original)</option>
+                </select>
+                <select name="sort_direction" class="input">
+                    <option value="desc" {% if sort_direction == 'desc' %} selected {% endif %}>내림차</option>
+                    <option value="asc" {% if sort_direction == 'asc' %} selected {% endif %}>오름차</option>
+                </select>
                 <input type="text" class="input" placeholder="Search Name" name="search_name" value="{{ search_name }}"/>
                 <input type="text" class="input" placeholder="Search Original Name" name="search_name_ori" value="{{ search_name_ori }}"/>
                 <label class="input" style="padding: 1px 6px; cursor: pointer;">
@@ -105,7 +114,7 @@
                         </li>
                     {% else %}
                         <li>
-                            <a href="/products?page={{ p }}&{% if category_idx %}category_idx={{category_idx}}&{% endif %}{% if level %}level={{level}}&{% endif %}{% if brand_idx %}brand_idx={{brand_idx}}&{% endif %}{% if search_name_ori != '' %}search_name={{search_name_ori|urlencode}}&{% endif %}{% if search_name != '' %}search_name={{search_name|urlencode}}&{% endif %}{% if hide_orgi_name == '1' %}hide_orgi_name=1&{% endif %}{% if ml_exclude_price == '1' %}ml_exclude_price=1&{% endif %}{% if ml_exclude_lang == '1' %}ml_exclude_lang=1&{% endif %}">
+                            <a href="/products?page={{ p }}&sort_by={{sort_by}}&sort_direction={{sort_direction}}&{% if category_idx %}category_idx={{category_idx}}&{% endif %}{% if level %}level={{level}}&{% endif %}{% if brand_idx %}brand_idx={{brand_idx}}&{% endif %}{% if search_name_ori != '' %}search_name={{search_name_ori|urlencode}}&{% endif %}{% if search_name != '' %}search_name={{search_name|urlencode}}&{% endif %}{% if hide_orgi_name == '1' %}hide_orgi_name=1&{% endif %}{% if ml_exclude_price == '1' %}ml_exclude_price=1&{% endif %}{% if ml_exclude_lang == '1' %}ml_exclude_lang=1&{% endif %}">
                                 {{ p }}
                             </a>
                         </li>
